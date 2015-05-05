@@ -1,0 +1,21 @@
+{
+	"name": "clubduece/cpt-date-archives",
+	"type": "wp-muplugin",
+	"description": "A plugin to add year, month, and day archives for custom post types.",
+	"keywords": ["wordpress","mvc","plugins"],
+	"homepage": "https://github.com/clubduece/cpt-date-archives",
+	"license": "GPLv2.0",
+	"authors": [
+		{
+			"name": "ClubDuece",
+			"email": "daryl@clubduece.com",
+			"role": "Developer"
+    	}
+	],
+	"require": {
+		"php": ">=5.3"
+	},
+	"require-dev": {
+		"phpmd/phpmd": "2.2.2"
+	}
+}
