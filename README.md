@@ -16,9 +16,9 @@ This plugin requires PHP 5.3 or later and WordPress 3.0 or later.
 
 ## Installation ##
 
-The preferred installation method is via [Composer](http://getcomposer.org). This plugin can be found on Packagist.
+The preferred installation method is via [Composer](http://getcomposer.org). This plugin can be found on [Packagist](https://packagist.org/packages/clubduece/cpt-date-archives).
 
-Additionally, you can download a release and then upload to the `mu-plugins` directory.
+Additionally, you can [download a release](https://github.com/clubduece/cpt-date-archives/releases) and then upload to the `mu-plugins` directory. You will need to add file in the `mu-plugins` directory that loads the `cpt-date-archives.php` file from the plugin root directory.
 
 ## Contributions ##
 
