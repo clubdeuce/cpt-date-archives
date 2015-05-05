@@ -1,5 +1,7 @@
 # CPT Date Archives #
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/clubduece/cpt-date-archives/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/clubduece/cpt-date-archives/?branch=master)
+
 This mu-plugin adds support for date based archives for public custom post types that are registered with the `has_archive` property set to `true`. It adds rules for year, month, and date archives.
 
 For example, if you register a custom post type of `books` for a website at `http://example.com`, the following URLs will be be active if you are using pretty permalinks (providing posts fit within the timeframe) :
