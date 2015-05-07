@@ -20,6 +20,7 @@ class CPT_Date_Archives {
 	public function __construct() {
 
 		add_action( 'init', array( $this, 'custom_rewrite_rules' ), 999 );
+		add_action( 'init', array( $this, 'settings_page' ) );
 
 	}
 
@@ -39,6 +40,14 @@ class CPT_Date_Archives {
 				//Yearly archive
 				add_rewrite_rule( "^{$post_type->rewrite['slug']}/([0-9]{4})",                         'index.php?post_type=' . $post_type->name . '&m=$matches[1]', 'top' );
 			}
+		}
+
+	}
+
+	public function settings_page() {
+
+		if ( is_admin() ) {
+			$settings_page = new CPT_Date_Archive_Settings;
 		}
 
 	}

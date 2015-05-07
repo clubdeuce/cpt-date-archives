@@ -30,6 +30,7 @@ if ( ! defined( 'CPT_DATE_ARCHIVES' ) ) {
 
 if ( CPT_DATE_ARCHIVES ) {
 	require_once 'includes/class-cpt-date-archives.php';
+	require_once 'includes/class-settings.php';
 
 	$CPT_Date_Archives = new CPT_Date_Archives;
 }
