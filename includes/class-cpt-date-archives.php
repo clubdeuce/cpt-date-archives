@@ -47,7 +47,7 @@ class CPT_Date_Archives {
 	public function settings_page() {
 
 		if ( is_admin() ) {
-			$settings_page = new CPT_Date_Archive_Settings;
+			$settings_page = CPT_Date_Archive_Settings::init();
 		}
 
 	}

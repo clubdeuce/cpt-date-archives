@@ -7,6 +7,16 @@
 class CPT_Date_Archive_Settings {
 
 	/**
+	 * A singleton instance
+	 *
+	 * @var    CPT_Date_Archive_Settings
+	 * @static
+	 * @access private
+	 * @since  0.2
+	 */
+	private static $instance = null;
+
+	/**
 	 * The page object
 	 *
 	 * @var    stdClass
@@ -22,6 +32,7 @@ class CPT_Date_Archive_Settings {
 	 * @since  0.2
 	 */
 	public function __construct() {
+	protected function __construct() {
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 
@@ -98,6 +109,35 @@ class CPT_Date_Archive_Settings {
 		}
 
 		return $input;
+
+	}
+
+	/**
+	 * Prevent cloning of the singleton instance
+	 *
+	 * @access private
+	 * @since  0.2
+	 */
+	private function __clone() {}
+
+	/**
+	 * Prevent unserializing of the singleton instance
+	 *
+	 * @access private
+	 * @since  0.2
+	 */
+	private function __wakeup () {}
+
+	/**
+	 * Singleton model
+	 */
+	public static function init() {
+
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new CPT_Date_Archive_Settings;
+		}
+
+		return self::$instance;
 
 	}
 
