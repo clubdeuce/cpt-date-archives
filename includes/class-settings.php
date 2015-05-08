@@ -1,8 +1,9 @@
 <?php
 /**
  * The settings page class
- * 
- * @since 0.2
+ *
+ * @license GPLv2 or later
+ * @since   0.2
  */
 class CPT_Date_Archive_Settings {
 
@@ -201,6 +202,9 @@ class CPT_Date_Archive_Settings {
 
 	/**
 	 * Singleton model
+	 *
+	 * @access public
+	 * @since  0.2
 	 */
 	public static function init() {
 

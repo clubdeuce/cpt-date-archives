@@ -1,22 +1,18 @@
 <?php
-/*
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-*/
-
+/**
+ * Class CPT_Date_Archives
+ *
+ * @license GPLv2 or later
+ * @since   0.1
+ */
 class CPT_Date_Archives {
 
+	/**
+	 * The class constructor
+	 *
+	 * @access public
+	 * @since  0.1
+	 */
 	public function __construct() {
 
 		add_action( 'init', array( $this, 'custom_rewrite_rules' ) );
@@ -26,6 +22,9 @@ class CPT_Date_Archives {
 
 	/**
 	 * Add rewrite rules for supported custom post types to create day, month, and year archives
+	 *
+	 * @access public
+	 * @since  0.1
 	 */
 	public function custom_rewrite_rules() {
 
@@ -52,10 +51,16 @@ class CPT_Date_Archives {
 
 	}
 
+	/**
+	 * Initialize the settings page for the backend
+	 *
+	 * @access public
+	 * @since  0.2
+	 */
 	public function settings_page() {
 
 		if ( is_admin() ) {
-			$settings_page = CPT_Date_Archive_Settings::init();
+			CPT_Date_Archive_Settings::init();
 		}
 
 	}
