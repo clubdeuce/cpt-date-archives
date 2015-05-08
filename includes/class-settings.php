@@ -34,6 +34,7 @@ class CPT_Date_Archive_Settings {
 	protected function __construct() {
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		add_action( 'update_option_cpt_date_archive_post_types', array( $this, 'update_option' ) );
 
 		$this->page     = new stdClass;
 		$this->page->id = 'cpt_date_archives';
@@ -108,6 +109,20 @@ class CPT_Date_Archive_Settings {
 		}
 
 		return $input;
+
+	}
+
+	/**
+	 * Delete the rewrite rules when updating the plugin settings
+	 *
+	 * Hooked to WP 'updated_option_cpt_date_archive_post_types' action.
+	 *
+	 * @access public
+	 * @since  0.2
+	 */
+	public function update_option() {
+
+			delete_option( 'rewrite_rules' );
 
 	}
 
