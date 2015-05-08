@@ -81,10 +81,12 @@ class CPT_Date_Archive_Settings {
 	public function render_field_post_types() {
 
 		$post_types = get_post_types( array( 'public' => 'true', '_builtin' => false ), 'objects' );
-		$selected   = get_option( 'cpt_date_archive_post_types', array() );
+		$selected   = $this->get_post_type_objects();
+
+		esc_html_e( __( 'Inputs are disabled for post types that do not support archives.', 'cpt_date_archive_post_types' ) );
 
 		foreach ( $post_types as $post_type ) {
-			if ( in_array( $post_type->name, $selected) ) {
+			if ( $this->has_date_archive( $post_type ) ) {
 				$post_type->checked = true;
 			}
 
@@ -109,6 +111,61 @@ class CPT_Date_Archive_Settings {
 		}
 
 		return $input;
+
+	}
+
+	/**
+	 * Get the post type objects that are set to support date archives
+	 *
+	 * @return stdClass[]
+	 * @access public
+	 * @since  0.2
+	 */
+	public function get_post_type_objects() {
+
+		$post_types = $this->get_post_types();
+
+		foreach ( $post_types as $key => $post_type ) {
+			$post_types[ $key ] = get_post_type_object( $post_type );
+		}
+
+		return $post_types;
+
+	}
+
+	/**
+	 * Get the post post type names that are set to support date archives
+	 *
+	 * @return string[]
+	 * @access public
+	 * @since 0.2
+	 */
+	public function get_post_types() {
+
+		return get_option( 'cpt_date_archive_post_types', array() );
+
+	}
+
+	/**
+	 * Does a particular post type have a date archive?
+	 *
+	 * @return bool
+	 * @access public
+	 * @since  0.2
+	 */
+	public function has_date_archive( $post_type ) {
+
+		$value = false;
+
+		if ( ! is_object( $post_type ) ) {
+			$post_type = get_post_type_object( $post_type );
+		}
+
+		if ( in_array( $post_type->name, $this->get_post_types() ) ) {
+			$value = true;
+		}
+
+		return $value;
 
 	}
 
