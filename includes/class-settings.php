@@ -31,7 +31,6 @@ class CPT_Date_Archive_Settings {
 	 * @access public
 	 * @since  0.2
 	 */
-	public function __construct() {
 	protected function __construct() {
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );

@@ -30,6 +30,8 @@ class CPT_Date_Archives {
 	public function custom_rewrite_rules() {
 
 		$post_types = get_post_types( array( 'public' => true, '_builtin' => false ), 'objects' );
+		$settings_page = CPT_Date_Archive_Settings::init();
+		$post_types    = $settings_page->get_post_type_objects();
 
 		foreach( $post_types as $post_type ) {
 			if ( $post_type->has_archive ) {
